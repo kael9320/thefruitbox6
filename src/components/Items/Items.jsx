@@ -78,7 +78,7 @@ function Items(props){
   return (
     <div className="row">
       {items.map((item) => {
-        return  <Item key={item.id} name={item.name} img={require(`./Images/${item.img}`)} category={item.category}  price={item.price} description={item.description} />
+        return  <Item key={item.id} id={item.id} name={item.name} img={require(`./Images/${item.img}`)} category={item.category}  price={item.price} description={item.description} />
       })}
     </div>
   );
