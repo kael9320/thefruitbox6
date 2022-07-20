@@ -3,13 +3,14 @@ import CartWidget from "./CartWidget";
 import React from 'react';
 import { Button, Container, Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
       <header id="header">
         <Navbar bg="dark" expand="lg" variant="dark">
           <Container>
-            <Navbar.Brand href="#"><img src={logo} className="img-fluid" alt="logo" /></Navbar.Brand>
+            <Navbar.Brand><Link to={"/"}><img src={logo} className="img-fluid" alt="logo" /></Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav

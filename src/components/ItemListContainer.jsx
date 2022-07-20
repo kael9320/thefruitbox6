@@ -1,4 +1,6 @@
-import Items from "./Items/Items";
+import Items from './Items/Items';
+import { useParams } from 'react-router-dom';
+
 const ItemListContainer = () => {
     return (
         <div className="App">

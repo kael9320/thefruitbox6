@@ -3,7 +3,8 @@ import NavBar from "./components/NavBar";
 import NavFooter from "./components/NavFooter";
 import ItemListContainer from "./components/ItemListContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, link} from "react-router-dom";
+import ItemDetailContainer from "./components/Items/Item/ItemDetail";
 import "./App.css";
 
 function App() {
@@ -11,12 +12,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <NavBar />
         <Routes>
-          <Route index path="/"></Route>
+          <Route index path="/" element={<ItemListContainer />}></Route>
+          <Route path="/category/:name" element={<ItemDetailContainer />}></Route>
+          <Route path="/category/product/:name" element={<ItemDetailContainer />}></Route>
         </Routes>
-        <NavBar></NavBar>
-        <ItemListContainer />
-        <NavFooter></NavFooter>
+        <NavFooter />
       </BrowserRouter>
     </>
   );

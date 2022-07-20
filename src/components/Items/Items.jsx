@@ -1,5 +1,7 @@
 import React, { useState , useEffect } from "react";
+import { Link } from "react-router-dom";
 import Item from "./Item/Item";
+import { useParams } from 'react-router-dom';
 
 function Items(props){
 
@@ -7,7 +9,7 @@ function Items(props){
     {
       id: 1,
       name: "Producto 1",
-      category: "Aceites",
+      category: "verduras",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-1.jpg",
@@ -15,7 +17,7 @@ function Items(props){
     {
       id: 2,
       name: "Producto 2",
-      category: "Verduras",
+      category: "verduras",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-2.jpg",
@@ -23,7 +25,7 @@ function Items(props){
     {
       id: 3,
       name: "Producto 3",
-      category: "Harina",
+      category: "harina",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-3.jpg",
@@ -31,7 +33,7 @@ function Items(props){
     {
       id: 4,
       name: "Producto 3",
-      category: "Jugos",
+      category: "jugos",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-4.jpg",
@@ -39,7 +41,7 @@ function Items(props){
     {
       id: 5,
       name: "Producto 3",
-      category: "Embolsados",
+      category: "embolsados",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-5.jpg",
@@ -47,33 +49,31 @@ function Items(props){
     {
       id: 6,
       name: "Producto 3",
-      category: "Bebidas",
+      category: "bebidas",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-6.jpg",
     },
   ]
 
+  const { name } = useParams();
+  console.log(name);
   const [items, setItems] = useState([]);
+  const promise = new Promise ((resolve) => {
+    setTimeout(() => resolve(itemsData), 2000);
+  })
 
-   useEffect(
-    () => {
-      let promiseItems = new Promise((resolve, reject) => {
-        setTimeout(
-          () => {
-            resolve(itemsData);
-        }, 2000);
-      });
-
-      promiseItems.then(
-        (respuesta) =>{
-          setItems(itemsData);
+  useEffect(() => {
+      promise.then((res)=>{
+        const products = res;
+        if (name){
+          setItems(products.filter((product) => product.category == name ));
+        }else{
+          setItems(products);
         }
-      ).catch(
-        (errorMsg) => console.log(errorMsg)
-      )
-    },
-    []
+      }
+      );
+    }, [name]
   )
 
   return (

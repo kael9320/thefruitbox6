@@ -1,5 +1,8 @@
 import React from 'react';
-import ItemCount from '../../../components/ItemCount'
+import { Link } from 'react-router-dom';
+import ItemCount from '../../../components/ItemCount';
+import { Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
 const Item = (props) => {
 
@@ -20,6 +23,7 @@ const Item = (props) => {
                 <p className="price mb-3">S/ {props.price}</p>
                 <p>{props.description}</p>
                 <ItemCount initial={0} stock={10} onAdd={onAdd} />
+                <Link to={"/product/:name"}><Button variant="info">Ver detalle</Button></Link>
             </div>
         </div>
     )
