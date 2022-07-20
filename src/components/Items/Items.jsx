@@ -57,7 +57,6 @@ function Items(props){
   ]
 
   const { name } = useParams();
-  console.log(name);
   const [items, setItems] = useState([]);
   const promise = new Promise ((resolve) => {
     setTimeout(() => resolve(itemsData), 2000);
@@ -79,7 +78,7 @@ function Items(props){
   return (
     <div className="row">
       {items.map((item) => {
-        return  <Item key={item.id} name={item.name} img={require(`./Images/${item.img}`)}  category={item.category}  price={item.price} description={item.description} />
+        return  <Item key={item.id} name={item.name} img={require(`./Images/${item.img}`)} category={item.category}  price={item.price} description={item.description} />
       })}
     </div>
   );

@@ -14,7 +14,7 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-                <div class="me-auto my-2 my-lg-0 navbar-nav navbar-nav-scroll">
+                <div className="me-auto my-2 my-lg-0 navbar-nav navbar-nav-scroll">
                   <Link to={"/category/promociones"} className="nav-link">Promociones</Link>
                   <Link to={"/category/verduras"} className="nav-link">Verduras</Link>
                   <Link to={"/category/bebidas"} className="nav-link">Bebidas</Link>
