@@ -17,7 +17,7 @@ function Items(props){
     {
       id: 2,
       name: "Producto 2",
-      category: "verduras",
+      category: "promociones",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-2.jpg",
@@ -33,7 +33,7 @@ function Items(props){
     {
       id: 4,
       name: "Producto 3",
-      category: "jugos",
+      category: "promociones",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-4.jpg",
@@ -49,7 +49,7 @@ function Items(props){
     {
       id: 6,
       name: "Producto 3",
-      category: "bebidas",
+      category: "promociones",
       price: "10",
       description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       img: "product-6.jpg",
@@ -79,7 +79,7 @@ function Items(props){
   return (
     <div className="row">
       {items.map((item) => {
-        return  <Item name={item.name} img={require(`./Images/${item.img}`)}  category={item.category}  price={item.price} description={item.description} />
+        return  <Item key={item.id} name={item.name} img={require(`./Images/${item.img}`)}  category={item.category}  price={item.price} description={item.description} />
       })}
     </div>
   );

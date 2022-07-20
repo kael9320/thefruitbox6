@@ -2,16 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../../../components/ItemCount';
 import { Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 
-const ItemDetail = (props) => {
+const Item = (props) => {
 
-    const params = useParams();
-    console.log(params);
+    const onAdd = (quantity) => {
+        if (quantity <= 0){
+        alert(`No hay productos para agregar`);
+        }else{
+        alert(`Agregaste ${quantity} unidades al carrito`);
+        }
+    }
 
     return (
-        <>Hola Detalle de Producto</>
+        <div className="col-lg-10">
+            <div className="product">
+                <h3 className="mb-3">{props.name}</h3>
+            </div>
+        </div>
     )
 }
 
-export default ItemDetail
+export default Item
